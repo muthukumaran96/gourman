@@ -24,13 +24,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-lightbox/lightbox.css" 
             ],
-            "scripts": []
-          },
-          "configurations": {
+            "scripts": [              
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"   
+            ]
+          },  
+          "configurations": { 
             "production": {
-              "fileReplacements": [
+              "fileReplacements": [ 
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
@@ -44,7 +48,7 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
+              "buildOptimizer": true,    
               "budgets": [
                 {
                   "type": "initial",

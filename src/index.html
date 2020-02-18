@@ -5,9 +5,184 @@
   <title>Gourmand</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">  
+  
+  <!-- <link href="./assets/owlcarousel/owl.carousel.min.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="./assets/owlcarousel/owl.theme.default.min.css">  -->
+  <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alex+Brush&display=swap" rel="stylesheet">  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" rel="stylesheet"> 
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css" rel="stylesheet"> 
+
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+ 
+  <!--pop up-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> 
+
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
+  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   -->
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- <script src="./assets/js/jquery.min.js"></script> -->
+  <!-- <script src="./assets/owlcarousel/owl.carousel.js"></script> 
+  <script src="./assets/owlcarousel/owl.carousel.min.js"></script>    -->
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>   
+
+  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  -->
+     
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+
+ 
+
+</head> 
 <body>
-  <app-root></app-root>
-</body>
+
+<script>
+$(document).ready(function(){
+
+    $('.parent-container').magnificPopup({
+        delegate: 'a', 
+        type: 'image',
+        gallery:{
+        enabled:true
+        }  
+    }); 
+
+    $('.parent-container2').magnificPopup({
+        delegate: 'a', 
+        type: 'image', 
+        gallery:{
+        enabled:true
+        }  
+    }); 
+
+
+$('.owl-carousel-banner').owlCarousel({  
+    loop:true, 
+    nav:true,
+    autoplay:true,
+    autoplayTimeout:5000, 
+    navigation : true, 
+    responsive:{ 
+        0:{
+            items:1
+        } 
+    } 
+}) 
+
+
+$('.owl-carousel-logo').owlCarousel({  
+    loop:true, 
+    nav:true,
+    autoplay:true,
+    autoplayTimeout:5000, 
+    navigation : true,
+    responsive:{ 
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})   
+
+
+$(window).scroll(function() {
+    var nav = $('.navbartop'); 
+    // var navbar=$('.navbar'); 
+    // var nav2 = $('.header');
+    // var logo=$('.logo-img'); 
+    // var topicon=$('.active1');
+    var top = 100;
+    if ($(window).scrollTop() >= top) {
+        nav.addClass('navbarextra');
+        jQuery('.headerlogoo').attr("src", "assets/images/logo-dark.png"); 
+         
+    } else {
+        nav.removeClass('navbarextra');  
+        jQuery('.headerlogoo').attr("src", "assets/images/logo-light.png");  
+       
+    }
+});  
+
+
+
+$('.progress_bar').each(function() {
+        var percent = $(this).attr('title');
+       $(this).animate({width: percent},1000);    
+    });  
+ 
+
+    $('.progress_bar').each(function() {
+        var percent = $(this).attr('title');
+       $(this).animate({width: percent},1000);    
+    });  
+  
+
+
+(function($) {
+
+/**
+ * Copyright 2012, Digital Fusion
+ * Licensed under the MIT license.
+ * http://teamdf.com/jquery-plugins/license/
+ *
+ * @author Sam Sehnert
+ * @desc A small plugin that checks whether elements are within
+ *     the user visible viewport of a web browser.
+ *     only accounts for vertical position, not horizontal.
+ */
+
+$.fn.visible = function(partial) {
+  
+    var $t            = $(this),
+        $w            = $(window),
+        viewTop       = $w.scrollTop(),
+        viewBottom    = viewTop + $w.height(),
+        _top          = $t.offset().top,
+        _bottom       = _top + $t.height(),
+        compareTop    = partial === true ? _bottom : _top,
+        compareBottom = partial === true ? _top : _bottom;
+  
+  return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+};
+  
+})(jQuery); 
+
+$(window).scroll(function(event) {
+  
+  $(".module").each(function(i, el) {
+    var el = $(el);
+    if (el.visible(true)) {
+    //   el.addClass("come-in"); 
+    $('.progress_bar').each(function() {
+      var percent = $(this).attr('title');
+     $(this).animate({width: percent},1000);     
+   });  
+    } 
+  });
+  
+});
+
+
+
+}); /*Document ready function ends*/ 
+
+
+</script>
+
+
+  <app-root></app-root> 
+</body> 
 </html>

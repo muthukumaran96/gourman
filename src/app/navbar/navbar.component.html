@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-sm bg-light navbartop">
+    <div class="container-fluid"> 
+
+            <a class="navbar-brand mainlogo" routerLink="/"> 
+                    <img src="assets/images/logo-light.png" alt="" class="headerlogoo">
+            </a>   
+        
+        <ul class="navbar-nav navbarrightside">
+            <li class="nav-item"> 
+                <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> 
+                home
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" routerLink="/recipe" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Recipe  
+                </a>  
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Cake</a></li>
+                    <li><a class="dropdown-item" href="#">Soup</a></li> 
+                    <li><a class="dropdown-item" href="#">Salads</a></li> 
+                    <li><a class="dropdown-item" href="#">Desserts</a></li>   
+                    <li><a class="dropdown-item" href="#">Lebanese cuisine</a></li>     
+                </ul>
+            </li>  
+            <li class="nav-item">
+                <a routerLink="/aboutus" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                About Us 
+                </a> 
+            </li> 
+            <li class="nav-item">
+                <a routerLink="/contact" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                Contact 
+                </a>
+            </li> 
+            <!-- <li class="nav-item">
+                <a routerLink="/recipe" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    Recipe  
+                </a>     
+            </li>  -->
+        </ul> 
+    </div>
+</nav> 
