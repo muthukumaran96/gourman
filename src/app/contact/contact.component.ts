@@ -23,18 +23,15 @@ export class ContactComponent implements OnInit {
  
    }
  
-  ngOnInit() {
-  
+  ngOnInit() {  
   }
 
-   get f() { return this.registerForm.controls; }
-  
+  get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true; 
     if (this.registerForm.valid) {
-        console.log(this.registerForm);
- 
+        console.log(this.registerForm.value);
     }
 
 
@@ -43,17 +40,17 @@ export class ContactComponent implements OnInit {
     // formData.append("number", this.registerForm.get('number').value);
     // formData.append("email", this.registerForm.get('email').value);  
 
-
-    // this.http.post('http://localhost:4200/routes/index', formData).subscribe(
-    //   (response) => console.log(response),  
-    //   (error) => console.log(error) 
-    // )
+ 
+    this.http.post('http://localhost:4200/routes', JSON.stringify(this.registerForm.value)).subscribe(
+      (response) => console.log(response),    
+      (error) => console.log(error) 
+    )
 
     // stop here if form is invalid
     // if (this.registerForm.invalid) { 
     //     return;
     // }
     // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
-     } 
+  } 
 }
  
