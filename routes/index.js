@@ -17,7 +17,7 @@ connection.connect(function(err) {
     if (err) throw err 
     console.log('Yes You are now connected with mysql database...')
 }) 
-     
+      
 
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies

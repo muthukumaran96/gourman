@@ -16,7 +16,8 @@ import { TheteamComponent } from './theteam/theteam.component';
 import { LightboxModule } from 'ngx-lightbox';
  
 import {ProgressBarModule} from "angular-progress-bar"
-
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,12 @@ import {ProgressBarModule} from "angular-progress-bar"
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CarouselModule.forRoot(),
+    CarouselModule.forRoot(), 
     BrowserAnimationsModule,
     LightboxModule,
-    ProgressBarModule   
+    ProgressBarModule,
+    HttpClientModule,
+    ReactiveFormsModule    
 
   ],
   providers: [],
