@@ -28,11 +28,15 @@ export class ContactComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
-  onSubmit() {
+  onSubmit() {    
     this.submitted = true; 
-    if (this.registerForm.valid) {
-        console.log(this.registerForm.value);
-    }
+    if (this.registerForm.valid) { 
+        console.log(this.registerForm.value);   
+       this.http.post('http://localhost:3000/post',this.registerForm.value).subscribe(
+            (response) => console.log(response),    
+            (error) => console.log(error)     
+          )      
+        };   
 
 
     // var formData: any = new FormData();
@@ -41,11 +45,10 @@ export class ContactComponent implements OnInit {
     // formData.append("email", this.registerForm.get('email').value);  
 
  
-    this.http.post('http://localhost:4200/routes', JSON.stringify(this.registerForm.value)).subscribe(
-      (response) => console.log(response),    
-      (error) => console.log(error) 
-    )
-
+    // this.http.post('http://localhost:4200/routes/index', JSON.stringify(this.registerForm.value)).subscribe(
+    //   (response) => console.log(response),    
+    //   (error) => console.log(error) 
+    // )  
     // stop here if form is invalid
     // if (this.registerForm.invalid) { 
     //     return;
