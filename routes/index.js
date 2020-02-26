@@ -1,5 +1,6 @@
 var http = require("http");
 var express = require('express'); 
+var router = express.Router();
 var app = express();
 var mysql      = require('mysql');
 var bodyParser = require('body-parser');
@@ -47,16 +48,22 @@ app.get('/', function (req, res) {
 // // POST method route 
  
 app.post('/post', function (req, res) {    
-   // console.log(req.body);  
-
+   // console.log(req.body);    
+ 
    
-    // console.log(formdata);    
+   console.log(req.body); 
+   
+   console.log(req.body.name); 
+   console.log(req.body.number);  
+   console.log(req.body.email); 
    
      //var sql="insert into angulargourmandtable values('"+req.body.name+"','"+req.body.number+"','"+req.body.email+"')"
     // res.send('POST request to the homepage')
-    var sql="insert into 'angulargourmandtable' ('name','number','email') "+" values('"+req.body.name+"','"+req.body.number+"','"+req.body.email+"')";
-    connection.query(sql, function (err,result) {    
-        // if (err) throw err 
+   // var sql="insert into 'angulargourmandtable' ('name','number','email') "+" values('"+req.body.name+"','"+req.body.number+"','"+req.body.email+"')";
+    
+    var sql="INSERT INTO `angulargourmandtable`(`name`, `number`, `email`)" + " VALUES ('"+req.body.name+"','"+req.body.number+"','"+req.body.email+"');";   
+    connection.query(sql, function (err,result) {     
+        // if (err) throw err  
         // res.render('index',{title: 'Data saved',
         // message: 'Data saved successfully' }) 
         if(result!=null){
@@ -66,7 +73,7 @@ app.post('/post', function (req, res) {
             res.json({msg:"Not Inserted"});
             console.log('21'); 
         }   
-    })
+    }) 
   
 }) 
 

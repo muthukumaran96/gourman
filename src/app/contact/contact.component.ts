@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ContactComponent implements OnInit {
 
   registerForm: FormGroup;
-  submitted = false; 
+  submitted = false;  
  
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
 
@@ -31,12 +31,17 @@ export class ContactComponent implements OnInit {
   onSubmit() {    
     this.submitted = true; 
     if (this.registerForm.valid) { 
-        console.log(this.registerForm.value);   
-       this.http.post('http://localhost:3000/post',this.registerForm.value).subscribe(
-            (response) => console.log(response),    
-            (error) => console.log(error)     
-          )      
-        };   
+        //console.log(this.registerForm.value);   
+      //  this.http.post('http://localhost:3000/post',this.registerForm.value).subscribe(
+      //       (response) => console.log(response),    
+      //       (error) => console.log(error)    
+      //     )      
+
+      //console.log('form data variable :   ' + this.registerForm.value.toString()); 
+      this.http.post('http://localhost:3000/admin/save', this.registerForm.value).subscribe((res) => {
+        //console.log(res);    
+      })     
+      };   
 
 
     // var formData: any = new FormData();
